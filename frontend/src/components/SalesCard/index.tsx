@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationButton from '../NotificationButton'
@@ -10,6 +11,12 @@ function SalesCard() {
     const [maxDate, setMaxdate] = useState(Max); //Aqui voce tem um dado composto porque voce tem o dado e a função que muda o dado começando pela a data atual 
    //const date = new Date(new Date().setDate(new Date().getDate() - 365)); <--isso é para pegar a data de um ano anterior
    //OBS: Tudo isso são objetos
+    useEffect(() => {
+        axios.get('http://localhost:8080/sales').then(response => {
+            console.log(response.data)
+        })
+    }, [])
+
    return (
         <div className="dsmeta-card">
             <h2 className="dsmeta-sales-title">Vendas</h2>
