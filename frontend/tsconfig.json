@@ -18,9 +18,5 @@
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
-    "presets": [
-        "@babel/preset-env",
-       ["@babel/preset-react", {"runtime": "automatic"}]
-    ]
-
+   
 }
